@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class sendVideoController extends Controller
+class SendVideoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class sendVideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->cinderella);
     }
 
     /**
