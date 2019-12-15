@@ -86,7 +86,12 @@
                 <form action="/image" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div>
+                        <label>master</label>
                         <input type="file" name="cinderella" accept="image/png, image/jpeg">
+                    </div>
+                    <div>
+                        <label>target</label>
+                        <input type="file" name="target" accept="image/png, image/jpeg">
                     </div>
                     <input type="submit" value="送信"><input type="reset" value="リセット">
                 </form>

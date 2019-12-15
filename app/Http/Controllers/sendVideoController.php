@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Jenssegers\ImageHash\ImageHash;
+use Jenssegers\ImageHash\Implementations\DifferenceHash;
 
 class SendVideoController extends Controller
 {
@@ -34,7 +36,12 @@ class SendVideoController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->cinderella);
+        $master = $request->cinderella;
+        $target = $request->target;
+        $harsher = new ImageHash(new DifferenceHash());
+        $masterHash = $harsher->hash($master->getPathname());
+        $targetHAsh = $harsher->hash($target->getPathname());
+        dd($masterHash->distance($targetHAsh));
     }
 
     /**
