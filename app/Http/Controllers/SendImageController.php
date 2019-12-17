@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Jenssegers\ImageHash\ImageHash;
 use Jenssegers\ImageHash\Implementations\DifferenceHash;
 
-class SendVideoController extends Controller
+class SendImageController extends Controller
 {
     /**
      * @var string
@@ -63,12 +63,12 @@ class SendVideoController extends Controller
             $this->distance = 'No matching image range distance: ' . $distance;
         }
 
-        //toHexで出力したパラメータから画像対象画像同士の
-        $match = strcmp($masterHash->toHex(), $targetHash->toHex());
-        if ($match >= $this->matchingString) {
-            $this->hexParametor = 'No matching image not string parameter: ' . $match;
+        //toHexで出力したパラメータから画像対象一致文字列の引き合い
+        var_dump($masterHash->toHex(), $targetHash->toHex());
+        if ($masterHash->toHex() === $targetHash->toHex()) {
+            $this->hexParametor = 'maybe matching bad string parameter';
         } else {
-            $this->hexParametor = 'maybe matching bad string parameter: ' . $match;
+            $this->hexParametor = 'No matching image not string parameter';
         }
 
         $this->resultParam = ['distanceResult' => $this->distance, 'hexResult' => $this->hexParametor];
