@@ -17,6 +17,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Http\Hash\Difference\DifferenceInterface::class,
             \App\Http\Hash\Difference\Checker::class
         );
+        $this->app->bind(
+            \App\Http\Hash\Perceptual\PerceptualInterface::class,
+            \App\Http\Hash\Perceptual\Checker::class
+        );
     }
 
     /**
