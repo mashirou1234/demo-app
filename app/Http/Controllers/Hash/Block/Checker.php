@@ -49,26 +49,26 @@ class Checker implements BlockInterface
     {
         if ($master === $target) {
             $this->hexParametor = 'maybe matching string parameter: ';
-            $this->hexMaster = $master;
-            $this->hexTarget = $target;
         }
+        $this->hexMaster = $master;
+        $this->hexTarget = $target;
     }
 
     private function toInt($master, $target): void
     {
         if ($master === $target) {
             $this->intParametor = 'maybe matching int parameter: ';
-            $this->intMaster = $master;
-            $this->intTarget = $target;
         }
+        $this->intMaster = $master;
+        $this->intTarget = $target;
     }
 
     private function toBits($master, $target): void
     {
         if ($master === $target) {
             $this->bitsParametor = 'maybe matching binary parameter: ';
-            $this->bitsMaster = $master;
-            $this->bitsTarget = $target;
         }
+        $this->bitsMaster = $master;
+        $this->bitsTarget = $target;
     }
 }

@@ -8,6 +8,17 @@ use Jenssegers\ImageHash\Implementations\PerceptualHash;
 
 class Checker implements PerceptualInterface
 {
+    private $distance;
+    private $hexParametor;
+    private $intParametor;
+    private $bitsParametor;
+    private $hexMaster;
+    private $hexTarget;
+    private $intMaster;
+    private $intTarget;
+    private $bitsMaster;
+    private $bitsTarget;
+
     public function getHash(UploadedFile $master, UploadedFile $target) : array
     {
         $harsher = new ImageHash(new PerceptualHash());
@@ -38,26 +49,26 @@ class Checker implements PerceptualInterface
     {
         if ($master === $target) {
             $this->hexParametor = 'maybe matching string parameter: ';
-            $this->hexMaster = $master;
-            $this->hexTarget = $target;
         }
+        $this->hexMaster = $master;
+        $this->hexTarget = $target;
     }
 
     private function toInt($master, $target): void
     {
         if ($master === $target) {
             $this->intParametor = 'maybe matching int parameter: ';
-            $this->intMaster = $master;
-            $this->intTarget = $target;
         }
+        $this->intMaster = $master;
+        $this->intTarget = $target;
     }
 
     private function toBits($master, $target): void
     {
         if ($master === $target) {
             $this->bitsParametor = 'maybe matching binary parameter: ';
-            $this->bitsMaster = $master;
-            $this->bitsTarget = $target;
         }
+        $this->bitsMaster = $master;
+        $this->bitsTarget = $target;
     }
 }
