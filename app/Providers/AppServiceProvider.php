@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            \App\Http\Hash\Difference\DifferenceInterface::class,
+            \App\Http\Hash\Difference\Checker::class
+        );
     }
 
     /**
