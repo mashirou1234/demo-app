@@ -14,6 +14,10 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
+            \App\Http\Hash\Average\AverageInterface::class,
+            \App\Http\Hash\Average\Checker::class
+        );
+        $this->app->bind(
             \App\Http\Hash\Block\BlockInterface::class,
             \App\Http\Hash\Block\Checker::class
         );
