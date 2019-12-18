@@ -6,5 +6,5 @@ use Illuminate\Http\UploadedFile;
 
 interface DifferenceInterface
 {
-    public function getHash(UploadedFile $master, UploadedFile $target);
+    public function getHash(UploadedFile $master, UploadedFile $target) : array;
 }

@@ -19,7 +19,7 @@ class Checker implements DifferenceInterface
     private $bitsMaster;
     private $bitsTarget;
 
-    public function getHash(UploadedFile $master, UploadedFile $target): array
+    public function getHash(UploadedFile $master, UploadedFile $target) : array
     {
         $harsher = new ImageHash(new DifferenceHash());
         $masterHash = $harsher->hash($master->getPathname());
