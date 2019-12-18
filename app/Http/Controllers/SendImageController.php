@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Hash\Difference\DifferenceInterface;
 use App\Http\Hash\Perceptual\PerceptualInterface;
+use App\Http\Hash\Block\BlockInterface;
 
 class SendImageController extends Controller
 {
     private $difference;
     private $perceptual;
 
-    public function __construct(DifferenceInterface $difference, PerceptualInterface $perceptual)
+    public function __construct(DifferenceInterface $difference, PerceptualInterface $perceptual, BlockInterface $block)
     {
         $this->difference = $difference;
         $this->perceptual = $perceptual;
+        $this->block = $block;
     }
 
     /**
@@ -28,8 +30,9 @@ class SendImageController extends Controller
         $master = $request->cinderella;
         $target = $request->target;
 
-        $param[] = $this->difference->getHash($master, $target);
-        $param[] = $this->perceptual->getHash($master, $target);
+        $param['block'] = $this->block->getHash($master, $target);
+        $param['difference'] = $this->difference->getHash($master, $target);
+        $param['perceptual'] = $this->perceptual->getHash($master, $target);
         dd($param);
         return response()->json($param);
     }
