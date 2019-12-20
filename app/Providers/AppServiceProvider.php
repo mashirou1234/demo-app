@@ -13,7 +13,22 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            \App\Http\Hash\Average\AverageInterface::class,
+            \App\Http\Hash\Average\Checker::class
+        );
+        $this->app->bind(
+            \App\Http\Hash\Block\BlockInterface::class,
+            \App\Http\Hash\Block\Checker::class
+        );
+        $this->app->bind(
+            \App\Http\Hash\Difference\DifferenceInterface::class,
+            \App\Http\Hash\Difference\Checker::class
+        );
+        $this->app->bind(
+            \App\Http\Hash\Perceptual\PerceptualInterface::class,
+            \App\Http\Hash\Perceptual\Checker::class
+        );
     }
 
     /**

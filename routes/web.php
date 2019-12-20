@@ -11,10 +11,8 @@
 |
 */
 
-use App\Http\Controllers\sendVideoController;
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('video', 'sendVideoController@store');
+Route::post('/image', 'SendImageController@store');

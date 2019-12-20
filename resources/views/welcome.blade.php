@@ -83,9 +83,18 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-                <div>
-                    <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
-                </div>
+                <form action="/image" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div>
+                        <label>master</label>
+                        <input type="file" name="cinderella" accept="image/png, image/jpeg">
+                    </div>
+                    <div>
+                        <label>target</label>
+                        <input type="file" name="target" accept="image/png, image/jpeg">
+                    </div>
+                    <input type="submit" value="送信"><input type="reset" value="リセット">
+                </form>
                 {{-- <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
